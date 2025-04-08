@@ -1,0 +1,10 @@
+﻿using teste.application.ViewModels;
+namespace teste.application.Contract;
+public interface IPosicaoVeiculoRepository
+{
+    Task<List<PosicaoVeiculoViewModel>> Get();
+    Task<PosicaoVeiculoViewModel> Get(int id);
+    Task<PosicaoVeiculoViewModel> Create(PosicaoVeiculoViewModel posicaVeiculoModel);
+    Task<PosicaoVeiculoViewModel> Update(PosicaoVeiculoViewModel posicaVeiculoModel);
+    Task<bool> Delete(int id);
+}

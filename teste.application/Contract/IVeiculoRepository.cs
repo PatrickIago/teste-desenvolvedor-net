@@ -8,4 +8,8 @@ public interface IVeiculoRepository
     Task<VeiculoEntity> Create(VeiculoEntity veiculo);
     Task<VeiculoViewModel> Update(VeiculoViewModel veiculo);
     Task<bool> Delete(long id);
+
+    // Metodo para obter  veículos por linha
+    Task<List<VeiculoViewModel>> GetByLinhaId(long linhaId);
+
 }

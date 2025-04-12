@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using teste.application.Query.LinhaQuery;
 using teste.application.Query.ParadaQuery;
+using teste.application.Query.PosicaoVeiculoQuery;
 using teste.application.Query.VeiculoQuery;
 using teste.application.ViewModels;
 namespace teste.application.Query;
@@ -21,5 +22,12 @@ public class QueryInitializer
         // Veiculo
         services.AddTransient<IRequestHandler<GetVeiculoQuery, IEnumerable<VeiculoViewModel>>, GetVeiculoQueryHandler>();
         services.AddTransient<IRequestHandler<GetVeiculoByIdQuery, VeiculoViewModel>, GetVeiculoByIdQueryHandler>();
+
+        // Veículos por Linha
+        services.AddTransient<IRequestHandler<GetVeiculosByLinhaIdQuery, IEnumerable<VeiculoViewModel>>, GetVeiculosByLinhaIdQueryHandler>();
+
+        // PosicaoVeiculo
+        services.AddTransient<IRequestHandler<GetPosicaoVeiculoQuery, IEnumerable<PosicaoVeiculoViewModel>>, GetPosicaoVeiculoQueryHandler>();
+        services.AddTransient<IRequestHandler<GetPosicaoVeiculoByIdQuery, PosicaoVeiculoViewModel>, GetPosicaoVeiculoByIdQueryHandler>();
     }
 }

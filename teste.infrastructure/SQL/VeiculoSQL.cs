@@ -20,5 +20,16 @@ public static class VeiculoSQL
             SET Nome = @Nome, Modelo = @Modelo, LinhaId = @LinhaId
             OUTPUT INSERTED.*
             WHERE Id = @Id";
-            
+
+    public const string GetByLinhaId = @"
+        SELECT 
+            V.Id,
+            V.Nome,
+            V.Modelo
+        FROM 
+            Linhas L
+        INNER JOIN 
+            Veiculos V ON L.Id = V.LinhaId
+        WHERE 
+            L.Id = @LinhaId;";   
 }

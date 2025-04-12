@@ -2,22 +2,23 @@
 public static class PosicaoVeiculoSQL
 {
     public const string Insert = @"
-            INSERT INTO PosicoesVeiculos (Latitude, Longitude, VeiculoId) 
-            VALUES (@Latitude, @Longitude, @VeiculoId)
-            RETURNING *;";
-
+            INSERT INTO PosicaoVeiculo (Latitude, Longitude, VeiculoId) 
+            OUTPUT INSERTED.*
+            VALUES (@Latitude, @Longitude, @VeiculoId)";
+            
     public const string Delete = @"
-            DELETE FROM PosicoesVeiculos WHERE Id = @Id;";
+            DELETE FROM PosicaoVeiculo WHERE Id = @Id;";
 
     public const string GetById = @"
-            SELECT * FROM PosicoesVeiculos WHERE Id = @Id;";
+            SELECT * FROM PosicaoVeiculo WHERE Id = @Id;";
 
     public const string GetAll = @"
-            SELECT * FROM PosicoesVeiculos;";
+            SELECT * FROM PosicaoVeiculo;";
 
     public const string Update = @"
-            UPDATE PosicoesVeiculos 
+            UPDATE PosicaoVeiculo 
             SET Latitude = @Latitude, Longitude = @Longitude, VeiculoId = @VeiculoId 
-            WHERE Id = @Id
-            RETURNING *;";
+            OUTPUT INSERTED.*
+            WHERE Id = @Id";
+            
 }

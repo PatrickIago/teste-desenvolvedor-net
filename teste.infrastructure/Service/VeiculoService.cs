@@ -47,6 +47,12 @@ public class VeiculoService : IVeiculoRepository
         );
     }
 
+    public async Task<List<VeiculoViewModel>> GetByLinhaId(long linhaId)
+    {
+        var veiculos = await _dbConnection.QueryAsync<VeiculoViewModel>(VeiculoSQL.GetByLinhaId, new { LinhaId = linhaId });
+        return veiculos.AsList();
+    }
+
     public async Task<VeiculoViewModel?> Update(VeiculoViewModel veiculo)
     {
         return await _dbConnection.QuerySingleOrDefaultAsync<VeiculoViewModel>(

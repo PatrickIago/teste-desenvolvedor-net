@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using teste.application.Command.LinhaCommand;
 using teste.application.Command.ParadaCommand;
+using teste.application.Command.PosicaoVeiculoCommand;
 using teste.application.Command.VeiculoCommand;
 using teste.application.ViewModels;
 
@@ -24,6 +25,11 @@ public class CommandInitializer
         services.AddTransient<IRequestHandler<CreateVeiculoCommand, VeiculoViewModel>, CreateVeiculoCommandHandler>();
         services.AddTransient<IRequestHandler<UpdateVeiculoCommand, VeiculoViewModel>, UpdateVeiculoCommandHandler>();
         services.AddTransient<IRequestHandler<DeleteVeiculoCommand, bool>, DeleteVeiculoCommandHandler>();
+
+        // PosicaoVeiculo
+        services.AddTransient<IRequestHandler<CreatePosicaoVeiculoCommand, PosicaoVeiculoViewModel>, CreatePosicaoVeiculoCommandHandler>();
+        services.AddTransient<IRequestHandler<UpdatePosicaoVeiculoCommand, PosicaoVeiculoViewModel>, UpdatePosicaoVeiculoCommandHandler>();
+        services.AddTransient<IRequestHandler<DeletePosicaoVeiculoCommand, bool>, DeletePosicaoVeiculoCommandHandler>();
 
     }
 }

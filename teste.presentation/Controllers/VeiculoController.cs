@@ -60,4 +60,11 @@ public class VeiculoController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpGet("Recebe um identificador de linha e retorna os veiculos associados")]
+    public async Task<ActionResult<IEnumerable<VeiculoViewModel>>> GetByLinhaId(long linhaId)
+    {
+        var result = await _mediator.Send(new GetVeiculosByLinhaIdQuery(linhaId));
+        return Ok(result);
+    }
 }

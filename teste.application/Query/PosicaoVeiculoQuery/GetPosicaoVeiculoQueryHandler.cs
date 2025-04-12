@@ -23,13 +23,7 @@ namespace teste.application.Query.PosicaoVeiculoQuery
                     posicao.Id,
                     posicao.Latitude,
                     posicao.Longitude,
-                    posicao.VeiculoId,
-                    new VeiculoViewModel(
-                        posicao.Veiculo.Id,
-                        posicao.Veiculo.Nome,
-                        posicao.Veiculo.Modelo,
-                        posicao.Veiculo.LinhaId
-                    )
+                    posicao.VeiculoId
                 )).ToList();
         }
     }

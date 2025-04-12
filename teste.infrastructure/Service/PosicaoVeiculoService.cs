@@ -2,6 +2,7 @@
 using System.Data;
 using teste.application.Contract;
 using teste.application.ViewModels;
+using teste.domain.Entities;
 using teste.infrastructure.SQL;
 
 namespace teste.infrastructure.Service
@@ -15,12 +16,13 @@ namespace teste.infrastructure.Service
             _dbConnection = dbConnection;
         }
 
-        public async Task<PosicaoVeiculoViewModel> Create(PosicaoVeiculoViewModel posicaVeiculoModel)
+        public async Task<PosicaoVeiculoViewModel> Create(PosicaoVeiculoEntity posicaoVeiculo)
         {
-            return await _dbConnection.QuerySingleAsync<PosicaoVeiculoViewModel>(
+            var result = await _dbConnection.QuerySingleAsync<PosicaoVeiculoViewModel>(
                 PosicaoVeiculoSQL.Insert,
-                new { posicaVeiculoModel.Latitude, posicaVeiculoModel.Longitude, posicaVeiculoModel.VeiculoId }
+                new { posicaoVeiculo.Latitude, posicaoVeiculo.Longitude, posicaoVeiculo.VeiculoId }
             );
+            return result;
         }
 
         public async Task<bool> Delete(int id)
@@ -46,12 +48,13 @@ namespace teste.infrastructure.Service
             );
         }
 
-        public async Task<PosicaoVeiculoViewModel?> Update(PosicaoVeiculoViewModel posicaVeiculoModel)
+        public async Task<PosicaoVeiculoViewModel?> Update(PosicaoVeiculoEntity posicaoVeiculo)
         {
-            return await _dbConnection.QuerySingleOrDefaultAsync<PosicaoVeiculoViewModel>(
+            var result = await _dbConnection.QuerySingleOrDefaultAsync<PosicaoVeiculoViewModel>(
                 PosicaoVeiculoSQL.Update,
-                new { posicaVeiculoModel.Latitude, posicaVeiculoModel.Longitude, posicaVeiculoModel.VeiculoId, posicaVeiculoModel.Id }
+                new { posicaoVeiculo.Latitude, posicaoVeiculo.Longitude, posicaoVeiculo.VeiculoId, posicaoVeiculo.Id }
             );
+            return result;
         }
     }
 }

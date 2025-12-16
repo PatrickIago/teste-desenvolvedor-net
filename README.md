@@ -1,34 +1,23 @@
-# 🚀 Nome do Seu Projeto
+# teste-desenvolvedor-net
 
-> Uma API robusta desenvolvida para demonstrar a aplicação de padrões avançados de arquitetura em .NET 8.
+Olá, tudo bem? Usei esse projeto para praticar os conhecimento adquiridos com o .NET
 
-![Status do Projeto](https://img.shields.io/badge/STATUS-FINALIZADO-green) ![.NET](https://img.shields.io/badge/.NET-8.0-purple)
+![image](https://github.com/user-attachments/assets/f2deea60-0529-4319-b5f9-533e57311fc2)
 
-## 🎯 Objetivo
-Este projeto foi desenvolvido como um laboratório prático para consolidar conhecimentos em arquitetura de software, focando na separação de responsabilidades (CQRS) e performance de banco de dados (abordagem híbrida EF Core + Dapper).
+![image](https://github.com/user-attachments/assets/b75a8ccc-d764-4422-9548-b3e70d936d57)
 
-## 🏗️ Arquitetura e Design Patterns
-O projeto segue os princípios do **DDD (Domain-Driven Design)**:
+## 🛠️ Tecnologias Utilizadas
 
-* **API Layer:** Pontos de entrada RESTful.
-* **Application Layer:** Casos de uso orquestrados via **MediatR** (CQRS).
-* **Domain Layer:** Entidades, Value Objects e Regras de Negócio puras.
-* **Infrastructure Layer:** Persistência de dados e integrações externas.
+- .NET 8
+- C#
+- Entity Framework Core
+- Dapper
+- CQRS com MediatR
+- AutoMapper
+- SQL 
+- RESTful API
 
-### Por que EF Core *e* Dapper?
-Utilizei uma abordagem híbrida para obter o melhor dos dois mundos:
-1.  **EF Core (Commands):** Para operações de escrita (INSERT, UPDATE, DELETE), garantindo integridade e facilidade no mapeamento de entidades complexas.
-2.  **Dapper (Queries):** Para operações de leitura (SELECT), focado em performance bruta e baixo overhead de memória.
+## 📂 Estrutura do Projeto
 
-## 🛠️ Tecnologias
-* **Core:** .NET 8, C#
-* **Persistência:** Entity Framework Core (Writes), Dapper (Reads)
-* **Orquestração:** MediatR (Padrão Mediator)
-* **Mapeamento:** AutoMapper
-* **Banco de Dados:** SQL Server (ou o que você usou)
+O projeto segue o padrão **DDD (Domain-Driven Design)** com separação clara de responsabilidades:
 
-## ⚙️ Como Executar
-1. Clone o repositório.
-2. Configure a `ConnectionString` no `appsettings.json`.
-3. Execute as migrações: `dotnet ef database update`.
-4. Rode a aplicação: `dotnet run`.
